@@ -597,20 +597,17 @@ function Counter({ target, suffix = "" }) {
 
 /* ── Data ───────────────────────────────────────────────────────────────── */
 const EXPERTISE = [
-  { icon:"🏗️", name:"Master Data Management", desc:"End-to-end MDM implementations across SAP MDG, Informatica MDM, and Reltio. Golden record strategies, matching logic, and data stewardship workflows.", tags:["SAP MDG","Informatica MDM","Reltio","Golden Record"] },
-  { icon:"🤖", name:"AI-Powered Data Mgmt", desc:"Integrating LLMs into data pipelines for intelligent deduplication, automated DQ scoring, and AI-driven governance recommendations.", tags:["LLM Integration","GenAI","Auto-DQ","Claude API"] },
+  { icon:"🏗️", name:"Master Data Management", desc:"End-to-end MDM implementations on Informatica MDM and Reltio. Golden record strategies, matching & merging logic, hierarchy management, and data stewardship workflows.", tags:["Informatica MDM","Reltio","Golden Record","Data Stewardship"] },
+  { icon:"🤖", name:"AI-Powered Data Mgmt", desc:"Hands-on with Google Gemini, Claude, and ChatGPT — building AI-augmented workflows for intelligent deduplication, automated DQ scoring, and GenAI-driven data governance.", tags:["Google Gemini","Claude","ChatGPT","Power Platform","GenAI"] },
   { icon:"🔍", name:"Data Quality & Governance", desc:"DQ frameworks, profiling strategies, and business rule engines. Governance operating models aligned with regulatory requirements.", tags:["DQ Frameworks","Profiling","Business Rules","GDPR"] },
-  { icon:"🔄", name:"Data Integration & ETL", desc:"Architecting integration hubs for complex enterprise landscapes with SAP, Salesforce, Oracle, and cloud data platforms.", tags:["SAP CPI","MuleSoft","Kafka","Snowflake"] },
+  { icon:"🔄", name:"Data Integration & ETL", desc:"Architecting integration solutions across enterprise landscapes — connecting ERP, CRM, and cloud platforms with robust, scalable data pipelines.", tags:["Microsoft Power Platform","Informatica","MuleSoft","Azure"] },
   { icon:"📊", name:"Enterprise Architecture", desc:"Business strategy translated into data architecture blueprints. Domain-driven modelling, data mesh principles, and modernisation roadmaps.", tags:["Data Mesh","Domain Modelling","Cloud Migration"] },
   { icon:"🌍", name:"Global Delivery", desc:"Leading distributed teams across EMEA, APAC, and Americas. Large-scale transformation with cross-cultural stakeholder management.", tags:["EMEA","APAC","Change Management","Programme Delivery"] },
 ];
 
 const TIMELINE = [
-  { period:"2021 — Present", role:"Senior MDM Consultant", company:"Independent / Consulting · Dubai, UAE", desc:"Advising enterprise clients across MENA and Europe on MDM strategy, platform selection, and AI-augmented data management. Leading full-cycle implementations from discovery to go-live.", tags:["MDM Strategy","AI Integration","MENA","Enterprise"] },
-  { period:"2017 — 2021", role:"MDM Practice Lead", company:"Global Consulting Firm · Dubai, UAE", desc:"Built and led the MDM practice from the ground up. Delivered 12+ SAP MDG and Informatica MDM projects across banking, retail, and energy sectors in the Gulf region.", tags:["Practice Building","SAP MDG","Banking","Retail","Energy"] },
-  { period:"2013 — 2017", role:"Data Management Specialist", company:"Technology Services · Multiple Locations", desc:"Designed and implemented data governance frameworks and MDM solutions for Fortune 500 clients. Extensive delivery across Europe and Asia.", tags:["Data Governance","Fortune 500","Europe","Asia"] },
-  { period:"2008 — 2013", role:"Data Analyst & BI Developer", company:"Financial Services", desc:"Started the data journey in financial services — ETL pipelines, reporting dashboards, and data warehousing. The foundation of everything that followed.", tags:["ETL","BI","Data Warehousing"] },
-  { period:"2004 — 2008", role:"Early Career", company:"Technology & Analytics", desc:"First steps in technology and analytics. Building the curiosity and craft that would define two decades in data.", tags:["Analytics","Technology","Foundation"] },
+  { period:"Present", role:"Data Management Lead", company:"M.H. Alshaya Co. · Dubai, UAE", desc:"Driving enterprise data management strategy at one of the Middle East's largest retail franchise operators — spanning 70+ international brands across 20+ markets. Leading MDM, data governance, and AI-augmented data initiatives across the organisation.", tags:["MDM","Data Governance","AI","Retail","MENA","Microsoft Power Platform","Informatica"] },
+  { period:"Earlier Career", role:"Data Management & MDM Roles", company:"Various Organisations · UAE & Region", desc:"Progressive roles across data management, MDM implementation, integration, and analytics — building expertise across retail, financial services, and enterprise technology.", tags:["MDM","ETL","Data Integration","BI","Analytics","Informatica"] },
 ];
 
 const PROJECTS = [
@@ -652,17 +649,21 @@ const Hero = () => {
           <p className="hero-tagline reveal delay-200" ref={useReveal(0.05)}>
             <strong>MDM Practitioner</strong> & <strong>AI-Powered Data Management Enthusiast.</strong><br/>
             20+ years turning messy enterprise data into trusted, governed, and intelligent assets.
-            Based in <strong>Dubai</strong>, working globally.
+            Data Management Lead at <strong>M.H. Alshaya Co.</strong>, based in <strong>Dubai</strong>.
           </p>
           <div className="hero-cta reveal delay-300" ref={useReveal(0.05)}>
             <a className="btn btn-grad" href="#contact">Get In Touch</a>
             <a className="btn btn-ghost" href="#projects">View Projects</a>
           </div>
           <div className="hero-stats reveal delay-400" ref={useReveal(0.05)}>
-            {[["20","+ Years",""],[" 30","+ Projects",""],["3"," Continents",""]].map(([n,s,_], i) => (
+            {[
+              {n:"20", s:"+ Years", lbl:"in Data", count:true},
+              {n:"MENA", s:"", lbl:"& Europe", count:false},
+              {n:"3", s:" AI Models", lbl:"Daily Driver", count:false},
+            ].map((item, i) => (
               <div className="stat-item" key={i}>
-                <span className="stat-num"><Counter target={n.trim()} suffix={s}/></span>
-                <span className="stat-label">{i===0?"in Data":i===1?"Delivered":"Served"}</span>
+                <span className="stat-num">{item.count ? <Counter target={item.n} suffix={item.s}/> : item.n+item.s}</span>
+                <span className="stat-label">{item.lbl}</span>
               </div>
             ))}
           </div>
@@ -671,7 +672,7 @@ const Hero = () => {
           <div className="hcard hcard1">
             <div className="hcard-icon">🏗️</div>
             <div className="hcard-title">Master Data Management</div>
-            <div className="hcard-sub">SAP MDG · Informatica · Reltio</div>
+            <div className="hcard-sub">Informatica · Reltio · Power Platform</div>
             <div className="hcard-bar"><div className="hcard-bar-fill" style={{width:"92%"}}/></div>
           </div>
           <div className="hcard hcard2">
@@ -703,7 +704,7 @@ const About = () => {
             <div className="chip">Who I Am</div>
             <h2 className="section-title">Global Professional.<br/><em>Human Story.</em></h2>
             <div className="about-text">
-              <p>I'm Raja — a <strong>Master Data Management practitioner</strong> with over 20 years navigating the beautiful chaos of enterprise data. Based in Dubai, I've consulted across the Middle East, Europe, and Asia, helping organisations cut through the noise and build data they can actually trust.</p>
+              <p>I'm Raja — a <strong>Master Data Management practitioner</strong> with over 20 years navigating the beautiful chaos of enterprise data. Based in Dubai, I work at the heart of large-scale retail and enterprise operations, helping organisations cut through the noise and build data they can actually trust.</p>
               <p>My journey started long before the MDM buzzword existed — in the back rooms of financial services, building ETL pipelines and learning that <strong>data problems are always people problems first.</strong> That lesson has guided every project since.</p>
               <blockquote className="about-quote">"Every dataset has a story. My job is to make sure that story is true."</blockquote>
               <p>Outside of work, I'm a photographer chasing light on five continents, a <strong>Manchester United</strong> die-hard (the hope never dies), a <strong>Team India cricket fanatic</strong>, and someone who believes A R Rahman's music contains the entire human emotional spectrum in melody. I've been writing since 2006 — a blog that started as a journal and became a life well-examined. Someday, a book.</p>
@@ -714,7 +715,7 @@ const About = () => {
             <div className="facts-grid">
               {[
                 {icon:"📍", label:"Based In", value:"Dubai, UAE 🇦🇪"},
-                {icon:"💼", label:"Current Role", value:"Senior MDM Consultant & AI Data Enthusiast"},
+                {icon:"💼", label:"Current Role", value:"Data Management Lead · M.H. Alshaya Co."},
                 {icon:"🇫🇮", label:"First Trip Abroad", value:"Finland (via Istanbul 🇹🇷)"},
                 {icon:"✍️", label:"Writing Since", value:"2006 — 'My Heart Thinks' blog"},
                 {icon:"📧", label:"Email", value:"raja.cloudmdm@gmail.com"},
