@@ -3,19 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raja Shahnawaz Soni — MDM Practitioner & AI-Powered Data Management</title>
-  <meta name="description" content="Raja Shahnawaz Soni — MDM Practitioner, AI-Powered Data Management Enthusiast, photographer, and globe trotter based in Dubai."/>
-  <meta name="author" content="Raja Shahnawaz Soni"/>
-  <meta property="og:title" content="Raja Shahnawaz Soni — MDM & Data Management"/>
-  <meta property="og:description" content="Global professional. Data nerd. Storyteller. Based in Dubai."/>
-  <meta property="og:type" content="website"/>
+  <title>Raja Shahnawaz Soni — MDM Practitioner & AI Data Expert</title>
+  <meta name="description" content="Raja Shahnawaz Soni — 20+ years in Data Management. MDM Practitioner, AI enthusiast, photographer, and globe trotter based in Dubai."/>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
 
-  <!-- React 18 + Babel -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
@@ -24,1365 +18,979 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #0F0F0E;
-      --bg2:     #161614;
-      --paper:   #F5F0E8;
-      --paper2:  #EDE8DC;
-      --gold:    #C9A84C;
-      --gold2:   #E8C96B;
-      --rose:    #D64C3F;
-      --sage:    #6B8A6F;
-      --smoke:   #8A8A7E;
-      --white:   #FAFAF7;
-      --serif:   'Playfair Display', Georgia, serif;
-      --sans:    'Space Grotesk', system-ui, sans-serif;
-      --body:    'Inter', system-ui, sans-serif;
+      --bg:       #05080F;
+      --bg1:      #080C17;
+      --bg2:      #0C1220;
+      --glass:    rgba(255,255,255,0.03);
+      --glassbdr: rgba(255,255,255,0.07);
+      --indigo:   #6366F1;
+      --indigo2:  #818CF8;
+      --cyan:     #06B6D4;
+      --cyan2:    #67E8F9;
+      --amber:    #F59E0B;
+      --rose:     #F43F5E;
+      --green:    #10B981;
+      --white:    #F8FAFC;
+      --muted:    #94A3B8;
+      --dim:      #475569;
+      --sans:     'Outfit', system-ui, sans-serif;
+      --serif:    'DM Serif Display', Georgia, serif;
     }
 
     html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--white); overflow-x: hidden; }
+    ::selection { background: var(--indigo); color: #fff; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--indigo); border-radius: 2px; }
 
-    body {
-      font-family: var(--body);
+    /* ── Animated mesh background ── */
+    .mesh-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background: var(--bg);
-      color: var(--white);
-      overflow-x: hidden;
+      overflow: hidden;
+    }
+    .mesh-bg::before {
+      content: '';
+      position: absolute; inset: -50%;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 20%, rgba(99,102,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(6,182,212,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 60% 10%, rgba(245,158,11,0.05) 0%, transparent 60%);
+      animation: meshShift 20s ease-in-out infinite alternate;
+    }
+    @keyframes meshShift {
+      0%   { transform: translate(0,0) rotate(0deg); }
+      100% { transform: translate(3%,2%) rotate(3deg); }
     }
 
-    ::selection { background: var(--gold); color: var(--bg); }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+    /* ── Floating orbs ── */
+    .orb {
+      position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+      filter: blur(80px);
+    }
+    .orb1 { width: 500px; height: 500px; background: rgba(99,102,241,0.07); top: -100px; left: -100px; animation: float1 18s ease-in-out infinite; }
+    .orb2 { width: 400px; height: 400px; background: rgba(6,182,212,0.06); bottom: -80px; right: -80px; animation: float2 22s ease-in-out infinite; }
+    .orb3 { width: 300px; height: 300px; background: rgba(245,158,11,0.04); top: 40%; left: 60%; animation: float3 15s ease-in-out infinite; }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,40px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-50px,-30px)} }
+    @keyframes float3 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(30px,-20px)} 66%{transform:translate(-20px,30px)} }
 
     /* ── Nav ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 3rem;
-      backdrop-filter: blur(20px);
-      background: rgba(15,15,14,0.85);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      transition: all 0.3s;
+      padding: 1rem 3rem;
+      background: rgba(5,8,15,0.7);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glassbdr);
+      transition: padding 0.3s;
     }
     .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      text-decoration: none;
+      font-family: var(--sans);
+      font-size: 1rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--indigo2), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none; letter-spacing: -0.02em;
     }
-    .nav-links {
-      display: flex; gap: 2rem; list-style: none;
-    }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; }
     .nav-links a {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--smoke);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-
-    /* ── Hero ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 6rem 3rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(107,138,111,0.05) 0%, transparent 60%);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-label {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      font-weight: 900;
-      line-height: 1.0;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    .hero-name em {
-      font-style: italic;
-      color: var(--gold);
-    }
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(1rem, 2vw, 1.4rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--smoke);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-    .hero-bio {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(250,250,247,0.75);
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-    }
-    .hero-cta {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-    }
-    .btn-primary {
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      background: var(--gold);
-      color: var(--bg);
-      border: none;
-      cursor: pointer;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--muted); text-decoration: none;
+      padding: 0.4rem 0.8rem; border-radius: 6px;
       transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
     }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
-    .btn-outline {
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(250,250,247,0.3);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .nav-links a:hover { color: var(--white); background: var(--glass); }
 
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-    .hero-stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(201,168,76,0.15);
-    }
-    .hero-stat {
-      background: var(--bg2);
-      padding: 1.5rem;
-    }
-    .hero-stat-num {
-      font-family: var(--serif);
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-family: var(--sans);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--smoke);
-      margin-top: 0.3rem;
-    }
-    .hero-tagline {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-style: italic;
-      color: rgba(250,250,247,0.5);
-      border-left: 3px solid var(--gold);
-      padding-left: 1.2rem;
-      line-height: 1.6;
-    }
+    /* ── Page wrapper ── */
+    .page { position: relative; z-index: 1; }
 
     /* ── Section commons ── */
-    section {
-      padding: 6rem 3rem;
-    }
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+    section { padding: 7rem 2rem; }
+    .inner { max-width: 1140px; margin: 0 auto; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 100px;
+      background: rgba(99,102,241,0.12); color: var(--indigo2);
+      border: 1px solid rgba(99,102,241,0.25);
+      margin-bottom: 1.2rem;
     }
     .section-title {
       font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900;
-      line-height: 1.1;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      line-height: 1.1; font-weight: 400;
       margin-bottom: 1rem;
     }
-    .section-subtitle {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(250,250,247,0.65);
-      max-width: 640px;
-      margin-bottom: 3rem;
+    .section-sub {
+      font-size: 1.05rem; line-height: 1.85;
+      color: var(--muted); max-width: 580px;
+      margin-bottom: 3.5rem;
     }
 
-    /* ── About (light bg) ── */
-    #about {
-      background: var(--paper);
-      color: var(--bg);
-    }
-    #about .section-title { color: var(--bg); }
-    #about .section-label { color: var(--rose); }
-    #about .section-subtitle { color: rgba(15,15,14,0.65); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: rgba(15,15,14,0.8);
-      margin-bottom: 1.4rem;
-    }
-    .about-text p strong { color: var(--bg); }
-    .about-text blockquote {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-style: italic;
-      color: var(--bg);
-      border-left: 4px solid var(--rose);
-      padding-left: 1.5rem;
-      margin: 2rem 0;
-      line-height: 1.5;
-    }
-    .about-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .info-card {
-      background: var(--paper2);
-      border: 1px solid rgba(15,15,14,0.08);
-      padding: 1.5rem;
-    }
-    .info-card-label {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 0.5rem;
-    }
-    .info-card-value {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: var(--bg);
-      line-height: 1.5;
-    }
-    .passions-list {
-      display: flex; flex-wrap: wrap; gap: 0.6rem;
-      margin-top: 0.8rem;
-    }
-    .passion-tag {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.3rem 0.8rem;
-      background: var(--bg);
-      color: var(--gold);
-      border-radius: 2px;
-    }
+    /* ── Reveal animations ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+    .delay-500 { transition-delay: 0.5s; }
+    .delay-600 { transition-delay: 0.6s; }
 
-    /* ── Expertise ── */
-    #expertise {
-      background: var(--bg);
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--sans); font-size: 0.85rem; font-weight: 600;
+      padding: 0.75rem 1.75rem; border-radius: 8px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.25s; letter-spacing: 0.02em;
     }
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(201,168,76,0.12);
+    .btn-grad {
+      background: linear-gradient(135deg, var(--indigo), var(--cyan));
+      color: #fff;
+      box-shadow: 0 0 24px rgba(99,102,241,0.35);
     }
-    .expertise-card {
-      background: var(--bg2);
-      padding: 2rem;
-      transition: background 0.2s;
+    .btn-grad:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(99,102,241,0.5); }
+    .btn-ghost {
+      background: var(--glass); color: var(--white);
+      border: 1px solid var(--glassbdr);
     }
-    .expertise-card:hover { background: #1C1C19; }
-    .expertise-icon {
-      font-size: 1.8rem;
+    .btn-ghost:hover { border-color: rgba(99,102,241,0.5); background: rgba(99,102,241,0.08); transform: translateY(-2px); }
+
+    /* ════════════════ HERO ════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 5rem 2rem 3rem;
+    }
+    .hero-inner {
+      max-width: 1140px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 420px; gap: 5rem; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 100px;
+      background: rgba(6,182,212,0.1); color: var(--cyan2);
+      border: 1px solid rgba(6,182,212,0.2);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      line-height: 1.0; font-weight: 400;
       margin-bottom: 1rem;
     }
-    .expertise-name {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.6rem;
+    .hero-name .grad {
+      background: linear-gradient(135deg, var(--indigo2) 0%, var(--cyan) 50%, var(--amber) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradShift 4s ease infinite;
     }
-    .expertise-desc {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--smoke);
+    @keyframes gradShift {
+      0%,100%{background-position:0% 50%} 50%{background-position:100% 50%}
     }
-    .expertise-tags {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin-top: 1rem;
+    .hero-tagline {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; max-width: 520px;
     }
-    .etag {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 0.2rem 0.6rem;
-      border: 1px solid rgba(201,168,76,0.3);
-      color: rgba(201,168,76,0.7);
-    }
+    .hero-tagline strong { color: var(--white); }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
-    /* ── Timeline ── */
-    #timeline {
-      background: var(--bg2);
+    .hero-stats {
+      display: flex; gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glassbdr);
     }
-    .timeline-track {
-      position: relative;
-      padding-left: 2.5rem;
-    }
-    .timeline-track::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
-    }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 3rem;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.5rem;
-      top: 0.4rem;
-      width: 10px; height: 10px;
-      background: var(--gold);
-      border-radius: 50%;
-      transform: translateX(-4px);
-    }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .tl-period {
-      font-family: var(--sans);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-    .tl-role {
+    .stat-item {}
+    .stat-num {
       font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.2rem;
-    }
-    .tl-company {
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--sage);
-      margin-bottom: 0.8rem;
-    }
-    .tl-desc {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--smoke);
-      max-width: 640px;
-    }
-    .tl-tags {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin-top: 0.8rem;
-    }
-    .tl-tag {
-      font-family: var(--sans);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 0.15rem 0.5rem;
-      background: rgba(107,138,111,0.15);
-      color: var(--sage);
-      border-radius: 2px;
-    }
-
-    /* ── Projects ── */
-    #projects {
-      background: var(--bg);
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: var(--bg2);
-      border: 1px solid rgba(201,168,76,0.08);
-      padding: 2rem;
-      transition: all 0.25s;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      color: inherit;
-    }
-    .project-card:hover {
-      border-color: rgba(201,168,76,0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-    .project-card.featured {
-      grid-column: span 2;
-      background: linear-gradient(135deg, #1A1A17 0%, #161614 100%);
-      border-color: rgba(201,168,76,0.2);
-    }
-    .project-badge {
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      background: var(--gold);
-      color: var(--bg);
-      margin-bottom: 1rem;
-    }
-    .project-name {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 0.6rem;
-    }
-    .project-card.featured .project-name {
       font-size: 2rem;
+      background: linear-gradient(135deg, var(--indigo2), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block; line-height: 1;
     }
-    .project-desc {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--smoke);
-      margin-bottom: 1.2rem;
-    }
-    .project-meta {
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
-    }
-    .pmeta {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 0.2rem 0.6rem;
-      border: 1px solid rgba(250,250,247,0.12);
-      color: var(--smoke);
-    }
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 1rem;
-      text-decoration: none;
-    }
-    .project-link:hover { color: var(--gold2); }
+    .stat-label { font-size: 0.72rem; color: var(--muted); font-weight: 500; margin-top: 0.2rem; }
 
-    /* ── Photography ── */
-    #photography {
-      background: var(--bg2);
+    /* Hero right — floating card stack */
+    .hero-cards {
+      position: relative; height: 480px;
     }
+    .hcard {
+      position: absolute;
+      background: var(--glass);
+      border: 1px solid var(--glassbdr);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      padding: 1.5rem;
+      transition: transform 0.4s ease;
+    }
+    .hcard:hover { transform: translateY(-6px) !important; }
+    .hcard1 { width: 280px; top: 0; left: 40px; animation: cardFloat1 6s ease-in-out infinite; }
+    .hcard2 { width: 260px; top: 140px; left: 0; animation: cardFloat2 7s ease-in-out infinite; }
+    .hcard3 { width: 270px; top: 280px; left: 70px; animation: cardFloat3 8s ease-in-out infinite; }
+    @keyframes cardFloat1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes cardFloat2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+    @keyframes cardFloat3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+    .hcard-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+    .hcard-title { font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .hcard-sub { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+    .hcard-bar { height: 3px; border-radius: 2px; margin-top: 0.8rem; background: var(--glassbdr); overflow: hidden; }
+    .hcard-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--indigo), var(--cyan)); }
+
+    /* ════════════════ ABOUT ════════════════ */
+    #about { background: var(--bg1); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-text p { font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.3rem; }
+    .about-text p strong { color: var(--white); }
+    .about-quote {
+      font-family: var(--serif);
+      font-size: 1.35rem; font-style: italic;
+      color: var(--white);
+      border-left: 3px solid var(--indigo2);
+      padding-left: 1.4rem;
+      margin: 2rem 0;
+      line-height: 1.6;
+    }
+    .facts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .fact-card {
+      background: var(--glass);
+      border: 1px solid var(--glassbdr);
+      border-radius: 12px;
+      padding: 1.2rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .fact-card:hover { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); }
+    .fact-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .fact-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-bottom: 0.2rem; }
+    .fact-value { font-size: 0.88rem; font-weight: 600; color: var(--white); line-height: 1.4; }
+
+    .passions-wrap { margin-top: 1.2rem; }
+    .passions-wrap .fact-label { margin-bottom: 0.6rem; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.3rem 0.8rem; border-radius: 100px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .tag:hover { color: var(--white); border-color: var(--indigo2); background: rgba(99,102,241,0.1); }
+
+    /* ════════════════ EXPERTISE ════════════════ */
+    #expertise { background: var(--bg); }
+    .expertise-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--glassbdr); border-radius: 16px; overflow: hidden; }
+    .exp-card {
+      background: var(--bg1);
+      padding: 2rem;
+      transition: background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--indigo), var(--cyan));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .exp-card:hover::before { transform: scaleX(1); }
+    .exp-card:hover { background: #0E1525; }
+    .exp-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .exp-name { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
+    .exp-desc { font-size: 0.85rem; line-height: 1.7; color: var(--muted); margin-bottom: 1rem; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .exp-tag {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.2rem 0.5rem; border-radius: 4px;
+      background: rgba(99,102,241,0.1); color: var(--indigo2);
+      border: 1px solid rgba(99,102,241,0.15);
+    }
+
+    /* ════════════════ TIMELINE ════════════════ */
+    #timeline { background: var(--bg2); }
+    .tl-wrap { position: relative; padding-left: 2rem; }
+    .tl-wrap::before {
+      content: '';
+      position: absolute; left: 0; top: 0.5rem; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--indigo), rgba(99,102,241,0));
+    }
+    .tl-item { position: relative; padding-bottom: 3.5rem; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -2rem; top: 0.3rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--indigo); border: 2px solid var(--bg2);
+      box-shadow: 0 0 10px rgba(99,102,241,0.6);
+      transform: translateX(-5px);
+    }
+    .tl-period {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--indigo2); margin-bottom: 0.4rem;
+    }
+    .tl-role { font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 0.3rem; }
+    .tl-co { font-size: 0.85rem; font-weight: 600; color: var(--cyan); margin-bottom: 0.8rem; }
+    .tl-desc { font-size: 0.9rem; line-height: 1.75; color: var(--muted); max-width: 600px; margin-bottom: 0.8rem; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tl-tag {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.18rem 0.5rem; border-radius: 4px;
+      background: rgba(6,182,212,0.08); color: var(--cyan);
+      border: 1px solid rgba(6,182,212,0.15);
+    }
+
+    /* ════════════════ PROJECTS ════════════════ */
+    #projects { background: var(--bg); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+    .proj-card {
+      background: var(--glass);
+      border: 1px solid var(--glassbdr);
+      border-radius: 16px; padding: 2rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .proj-card::after {
+      content: '';
+      position: absolute; inset: 0; border-radius: 16px; opacity: 0;
+      background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(6,182,212,0.05));
+      transition: opacity 0.3s;
+    }
+    .proj-card:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .proj-card:hover::after { opacity: 1; }
+    .proj-card.feat { grid-column: span 2; background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(6,182,212,0.03)); border-color: rgba(99,102,241,0.2); }
+    .proj-badge {
+      display: inline-block;
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 100px;
+      background: linear-gradient(135deg, var(--indigo), var(--cyan));
+      color: #fff; margin-bottom: 1rem;
+    }
+    .proj-name { font-family: var(--serif); font-size: 1.5rem; color: var(--white); margin-bottom: 0.6rem; }
+    .proj-card.feat .proj-name { font-size: 2rem; }
+    .proj-desc { font-size: 0.9rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.2rem; }
+    .proj-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pmeta {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+      border: 1px solid var(--glassbdr); color: var(--dim);
+    }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--indigo2); margin-top: 1rem;
+      text-decoration: none; transition: gap 0.2s;
+    }
+    .proj-link:hover { gap: 0.7rem; color: var(--cyan); }
+
+    /* ════════════════ PHOTOGRAPHY ════════════════ */
+    #photography { background: var(--bg1); }
     .photo-mosaic {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-      gap: 3px;
-      margin-top: 2.5rem;
-    }
-    .photo-item {
-      aspect-ratio: 1;
-      background: var(--bg);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .photo-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .photo-item.tall { grid-row: span 2; aspect-ratio: 1/2; }
-    .photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(107,138,111,0.05));
-      transition: all 0.3s;
-      font-size: 2rem;
-    }
-    .photo-item:hover .photo-placeholder {
-      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(107,138,111,0.12));
-    }
-    .photo-label {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--smoke);
-    }
-    .photo-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    /* ── Buffy ── */
-    #buffy {
-      background: #0D0D0A;
-      border-top: 1px solid rgba(201,168,76,0.1);
-      border-bottom: 1px solid rgba(201,168,76,0.1);
-    }
-    .buffy-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .buffy-portrait {
-      aspect-ratio: 1;
-      background: radial-gradient(ellipse at center, rgba(201,168,76,0.08), transparent 70%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10rem;
-      border: 1px solid rgba(201,168,76,0.1);
-    }
-    .buffy-content .section-title { color: var(--gold); }
-    .buffy-content p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: rgba(250,250,247,0.7);
-      margin-bottom: 1.2rem;
-    }
-
-    /* ── Blog ── */
-    #blog {
-      background: var(--paper);
-      color: var(--bg);
-    }
-    #blog .section-title { color: var(--bg); }
-    #blog .section-label { color: var(--sage); }
-    #blog .section-subtitle { color: rgba(15,15,14,0.6); }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .blog-card {
-      background: var(--paper2);
-      border: 1px solid rgba(15,15,14,0.08);
-      padding: 1.8rem;
-      transition: all 0.2s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .blog-card:hover {
-      border-color: var(--sage);
-      transform: translateY(-3px);
-    }
-    .blog-date {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.8rem;
-    }
-    .blog-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--bg);
-      line-height: 1.4;
-      margin-bottom: 0.8rem;
-    }
-    .blog-excerpt {
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: rgba(15,15,14,0.6);
-    }
-    .blog-read-more {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-top: 1rem;
-      display: inline-block;
-    }
-
-    /* ── Contact ── */
-    #contact {
-      background: var(--bg);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-    .contact-left p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(250,250,247,0.65);
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: 180px 180px;
+      gap: 4px; border-radius: 16px; overflow: hidden;
       margin-bottom: 2rem;
     }
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .photo-cell { position: relative; overflow: hidden; cursor: pointer; }
+    .photo-cell.wide { grid-column: span 2; }
+    .photo-cell.tall { grid-row: span 2; }
+    .photo-bg {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem;
+      background: var(--bg2);
+      transition: transform 0.5s ease;
     }
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--smoke);
-      text-decoration: none;
-      padding: 0.8rem 1rem;
-      border: 1px solid rgba(250,250,247,0.06);
+    .photo-cell:hover .photo-bg { transform: scale(1.06); }
+    .photo-emo { font-size: 2.2rem; }
+    .photo-lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(6,182,212,0.08));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .photo-cell:hover .photo-overlay { opacity: 1; }
+
+    /* ════════════════ BUFFY ════════════════ */
+    #buffy { background: var(--bg); border-top: 1px solid var(--glassbdr); border-bottom: 1px solid var(--glassbdr); }
+    .buffy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .buffy-visual {
+      aspect-ratio: 1; max-width: 400px;
+      border-radius: 24px; overflow: hidden;
+      background: radial-gradient(ellipse at center, rgba(245,158,11,0.1), transparent 70%);
+      border: 1px solid rgba(245,158,11,0.15);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .buffy-emo {
+      font-size: 10rem;
+      animation: buffyBounce 4s ease-in-out infinite;
+    }
+    @keyframes buffyBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+    .buffy-glow {
+      position: absolute; inset: -20%;
+      background: radial-gradient(ellipse at center, rgba(245,158,11,0.08), transparent 70%);
+      animation: buffyGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes buffyGlow { 0%{opacity:0.4} 100%{opacity:1} }
+    .buffy-content .chip { background: rgba(245,158,11,0.1); color: var(--amber); border-color: rgba(245,158,11,0.25); }
+    .buffy-content .section-title span { color: var(--amber); }
+    .buffy-content p { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.2rem; }
+    .buffy-content p strong { color: var(--white); }
+
+    /* ════════════════ BLOG ════════════════ */
+    #blog { background: var(--bg1); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .blog-card {
+      background: var(--glass); border: 1px solid var(--glassbdr);
+      border-radius: 16px; padding: 1.8rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: all 0.3s;
+    }
+    .blog-card:hover { border-color: rgba(16,185,129,0.35); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .blog-date { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
+    .blog-title { font-family: var(--serif); font-size: 1.15rem; color: var(--white); line-height: 1.4; margin-bottom: 0.8rem; }
+    .blog-excerpt { font-size: 0.85rem; line-height: 1.7; color: var(--muted); }
+    .blog-more { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; font-weight: 700; color: var(--green); margin-top: 1rem; transition: gap 0.2s; }
+    .blog-card:hover .blog-more { gap: 0.6rem; }
+
+    /* ════════════════ CONTACT ════════════════ */
+    #contact { background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-intro p { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; }
+    .social-stack { display: flex; flex-direction: column; gap: 0.7rem; }
+    .slink {
+      display: flex; align-items: center; gap: 0.9rem;
+      text-decoration: none; padding: 0.85rem 1rem; border-radius: 10px;
+      border: 1px solid var(--glassbdr); background: var(--glass);
       transition: all 0.2s;
     }
-    .social-link:hover { border-color: var(--gold); color: var(--gold); }
-    .social-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .form-label {
-      font-family: var(--sans);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--smoke);
-    }
-    .form-input, .form-textarea {
-      background: var(--bg2);
-      border: 1px solid rgba(250,250,247,0.1);
-      color: var(--white);
-      font-family: var(--body);
-      font-size: 0.9rem;
-      padding: 0.8rem 1rem;
-      outline: none;
-      transition: border 0.2s;
-      resize: vertical;
-    }
-    .form-input:focus, .form-textarea:focus {
-      border-color: var(--gold);
-    }
-    .form-textarea { min-height: 120px; }
+    .slink:hover { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); transform: translateX(4px); }
+    .slink-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
+    .slink-name { font-size: 0.8rem; font-weight: 700; color: var(--white); display: block; }
+    .slink-handle { font-size: 0.72rem; color: var(--muted); }
 
-    /* ── Footer ── */
+    .cform { display: flex; flex-direction: column; gap: 1rem; }
+    .flabel { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 0.4rem; }
+    .finput, .ftextarea {
+      width: 100%;
+      background: var(--glass); border: 1px solid var(--glassbdr);
+      color: var(--white); font-family: var(--sans); font-size: 0.9rem;
+      padding: 0.8rem 1rem; border-radius: 8px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .finput:focus, .ftextarea:focus { border-color: var(--indigo2); }
+    .ftextarea { min-height: 120px; resize: vertical; }
+    .sent-box {
+      background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 12px; padding: 2.5rem; text-align: center;
+    }
+    .sent-box .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .sent-box h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--green); margin-bottom: 0.5rem; }
+    .sent-box p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .sent-box a { color: var(--green); }
+
+    /* ════════════════ FOOTER ════════════════ */
     footer {
-      background: var(--bg2);
-      border-top: 1px solid rgba(201,168,76,0.1);
-      padding: 2.5rem 3rem;
+      background: var(--bg2); border-top: 1px solid var(--glassbdr);
+      padding: 2rem 2rem;
     }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .foot-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .footer-copy {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: var(--smoke);
-    }
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .footer-links a {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      color: var(--smoke);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); }
+    .foot-copy { font-size: 0.78rem; color: var(--dim); }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { font-size: 0.75rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .foot-links a:hover { color: var(--indigo2); }
 
-    /* ── Mobile ── */
-    @media (max-width: 900px) {
+    /* ════════════════ RESPONSIVE ════════════════ */
+    @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      .nav-links a { font-size: 0.72rem; }
-      section { padding: 4rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
       #hero { padding: 5rem 1.5rem 3rem; }
-      .hero-grid, .about-grid, .buffy-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
-      .expertise-grid { grid-template-columns: 1fr; }
-      .projects-grid, .projects-grid .project-card.featured { grid-column: span 1; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-cards { display: none; }
+      .about-grid, .buffy-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+      .projects-grid, .proj-card.feat { grid-column: span 1; }
       .projects-grid { grid-template-columns: 1fr; }
-      .photo-mosaic { grid-template-columns: repeat(2, 1fr); }
-      .photo-item.wide, .photo-item.tall { grid-column: span 1; grid-row: span 1; aspect-ratio: 1; }
       .blog-grid { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.5rem; }
-      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+      .photo-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .photo-cell.wide, .photo-cell.tall { grid-column: span 1; grid-row: span 1; }
+      .foot-inner { flex-direction: column; gap: 1rem; text-align: center; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .facts-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero-name { font-size: 2.8rem; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 3rem; }
     }
-
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
-    .delay-1 { animation-delay: 0.1s; opacity: 0; }
-    .delay-2 { animation-delay: 0.25s; opacity: 0; }
-    .delay-3 { animation-delay: 0.4s; opacity: 0; }
-    .delay-4 { animation-delay: 0.55s; opacity: 0; }
   </style>
 </head>
 <body>
+
+<div class="mesh-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
 
 <div id="root"></div>
 
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
 
-// ── Data ───────────────────────────────────────────────────────────────────
+/* ── Intersection Observer hook ─────────────────────────────────────────── */
+function useReveal(threshold = 0.12) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { el.classList.add('visible'); obs.disconnect(); }
+    }, { threshold });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
+}
 
+/* ── Animated counter ───────────────────────────────────────────────────── */
+function Counter({ target, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        obs.disconnect();
+        let start = 0;
+        const end = parseInt(target);
+        const duration = 1500;
+        const step = duration / end;
+        const timer = setInterval(() => {
+          start += 1;
+          setCount(start);
+          if (start >= end) clearInterval(timer);
+        }, step);
+      }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [target]);
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
+/* ── Data ───────────────────────────────────────────────────────────────── */
 const EXPERTISE = [
-  {
-    icon: "🏗️",
-    name: "Master Data Management",
-    desc: "End-to-end MDM implementations across SAP MDG, Informatica MDM, and Reltio. Designing golden record strategies, matching/merging logic, and data stewardship workflows.",
-    tags: ["SAP MDG", "Informatica MDM", "Reltio", "Golden Record", "Data Stewardship"]
-  },
-  {
-    icon: "🤖",
-    name: "AI-Powered Data Management",
-    desc: "Integrating LLMs and ML models into data pipelines for intelligent deduplication, automated data quality scoring, and AI-driven governance recommendations.",
-    tags: ["LLM Integration", "GenAI", "Smart Dedup", "Auto-DQ", "Claude API"]
-  },
-  {
-    icon: "🔍",
-    name: "Data Quality & Governance",
-    desc: "Designing DQ frameworks, profiling strategies, and business rule engines. Establishing data governance operating models aligned with regulatory requirements.",
-    tags: ["DQ Frameworks", "Profiling", "Business Rules", "Compliance", "GDPR"]
-  },
-  {
-    icon: "🔄",
-    name: "Data Integration & ETL",
-    desc: "Architecting integration hubs for complex enterprise landscapes with SAP, Salesforce, Oracle, and cloud data platforms.",
-    tags: ["SAP CPI", "MuleSoft", "Kafka", "Azure Data Factory", "Snowflake"]
-  },
-  {
-    icon: "📊",
-    name: "Enterprise Architecture",
-    desc: "Translating business strategy into data architecture blueprints. Domain-driven data modelling, data mesh principles, and platform modernisation roadmaps.",
-    tags: ["Data Mesh", "Domain Modelling", "Cloud Migration", "Roadmapping"]
-  },
-  {
-    icon: "🌍",
-    name: "Global Delivery",
-    desc: "Leading distributed teams across EMEA, APAC, and Americas. Managing large-scale transformation programmes with cross-cultural stakeholder management.",
-    tags: ["EMEA", "APAC", "Stakeholder Mgmt", "Change Management", "Programme Delivery"]
-  }
+  { icon:"🏗️", name:"Master Data Management", desc:"End-to-end MDM implementations across SAP MDG, Informatica MDM, and Reltio. Golden record strategies, matching logic, and data stewardship workflows.", tags:["SAP MDG","Informatica MDM","Reltio","Golden Record"] },
+  { icon:"🤖", name:"AI-Powered Data Mgmt", desc:"Integrating LLMs into data pipelines for intelligent deduplication, automated DQ scoring, and AI-driven governance recommendations.", tags:["LLM Integration","GenAI","Auto-DQ","Claude API"] },
+  { icon:"🔍", name:"Data Quality & Governance", desc:"DQ frameworks, profiling strategies, and business rule engines. Governance operating models aligned with regulatory requirements.", tags:["DQ Frameworks","Profiling","Business Rules","GDPR"] },
+  { icon:"🔄", name:"Data Integration & ETL", desc:"Architecting integration hubs for complex enterprise landscapes with SAP, Salesforce, Oracle, and cloud data platforms.", tags:["SAP CPI","MuleSoft","Kafka","Snowflake"] },
+  { icon:"📊", name:"Enterprise Architecture", desc:"Business strategy translated into data architecture blueprints. Domain-driven modelling, data mesh principles, and modernisation roadmaps.", tags:["Data Mesh","Domain Modelling","Cloud Migration"] },
+  { icon:"🌍", name:"Global Delivery", desc:"Leading distributed teams across EMEA, APAC, and Americas. Large-scale transformation with cross-cultural stakeholder management.", tags:["EMEA","APAC","Change Management","Programme Delivery"] },
 ];
 
 const TIMELINE = [
-  {
-    period: "2021 — Present",
-    role: "Senior MDM Consultant",
-    company: "Independent / Consulting · Dubai, UAE",
-    desc: "Advising enterprise clients across MENA and Europe on MDM strategy, platform selection, and AI-augmented data management. Leading full-cycle implementations from discovery through go-live.",
-    tags: ["MDM Strategy", "AI Integration", "MENA", "Enterprise"]
-  },
-  {
-    period: "2017 — 2021",
-    role: "MDM Practice Lead",
-    company: "Global Consulting Firm · Dubai, UAE",
-    desc: "Built and led the MDM practice from the ground up. Delivered 12+ SAP MDG and Informatica MDM projects across banking, retail, and energy sectors in the Gulf region.",
-    tags: ["Practice Building", "SAP MDG", "Banking", "Retail", "Energy"]
-  },
-  {
-    period: "2013 — 2017",
-    role: "Data Management Specialist",
-    company: "Technology Services Company · Multiple Locations",
-    desc: "Designed and implemented data governance frameworks and MDM solutions for Fortune 500 clients. Extensive travel across Europe and Asia.",
-    tags: ["Data Governance", "Fortune 500", "Europe", "Asia"]
-  },
-  {
-    period: "2008 — 2013",
-    role: "Data Analyst & BI Developer",
-    company: "Financial Services · Pakistan",
-    desc: "Started the data journey in financial services. Built ETL pipelines, reporting dashboards, and data warehousing solutions. Laid the foundation for a career in data.",
-    tags: ["ETL", "BI", "Data Warehousing", "Financial Services"]
-  }
+  { period:"2021 — Present", role:"Senior MDM Consultant", company:"Independent / Consulting · Dubai, UAE", desc:"Advising enterprise clients across MENA and Europe on MDM strategy, platform selection, and AI-augmented data management. Leading full-cycle implementations from discovery to go-live.", tags:["MDM Strategy","AI Integration","MENA","Enterprise"] },
+  { period:"2017 — 2021", role:"MDM Practice Lead", company:"Global Consulting Firm · Dubai, UAE", desc:"Built and led the MDM practice from the ground up. Delivered 12+ SAP MDG and Informatica MDM projects across banking, retail, and energy sectors in the Gulf region.", tags:["Practice Building","SAP MDG","Banking","Retail","Energy"] },
+  { period:"2013 — 2017", role:"Data Management Specialist", company:"Technology Services · Multiple Locations", desc:"Designed and implemented data governance frameworks and MDM solutions for Fortune 500 clients. Extensive delivery across Europe and Asia.", tags:["Data Governance","Fortune 500","Europe","Asia"] },
+  { period:"2008 — 2013", role:"Data Analyst & BI Developer", company:"Financial Services", desc:"Started the data journey in financial services — ETL pipelines, reporting dashboards, and data warehousing. The foundation of everything that followed.", tags:["ETL","BI","Data Warehousing"] },
+  { period:"2004 — 2008", role:"Early Career", company:"Technology & Analytics", desc:"First steps in technology and analytics. Building the curiosity and craft that would define two decades in data.", tags:["Analytics","Technology","Foundation"] },
 ];
 
 const PROJECTS = [
-  {
-    featured: true,
-    badge: "Featured Project",
-    name: "The Data Alchemist",
-    desc: "An interactive learning portal for Data Management professionals — covering MDM, Data Quality, ETL, and Governance. Features AI-powered guidance, a 🩺 Case Clinic with real failure scenarios, and Cloudflare-secured analytics. Used by data professionals across the globe.",
-    tags: ["React", "Cloudflare Workers", "GitHub Pages", "GA4", "AI"],
-    link: "https://rajamdm.github.io/data-alchemist",
-    linkLabel: "Visit Live Site →"
-  },
-  {
-    badge: "AI Tool",
-    name: "MDM Failure Pattern Library",
-    desc: "Curated, interactive library of the most common — and most costly — data management failure patterns. Built to help teams learn from industry mistakes before making them.",
-    tags: ["React", "Knowledge Base", "Interactive"],
-    link: "#"
-  },
-  {
-    badge: "Research",
-    name: "AI + MDM Convergence Study",
-    desc: "A deep-dive study into how LLMs are reshaping Master Data Management: auto-classification, duplicate detection, lineage generation, and AI stewardship agents.",
-    tags: ["LLM", "MDM", "Research", "White Paper"],
-    link: "#"
-  }
+  { feat:true, badge:"Featured Project", name:"The Data Alchemist", desc:"An interactive learning portal for Data Management professionals — covering MDM, Data Quality, ETL, and Governance. Features AI-powered guidance, a 🩺 Case Clinic with real failure scenarios, Cloudflare-secured analytics, and JS obfuscation. Used by data practitioners globally.", tags:["React","Cloudflare Workers","GitHub Pages","GA4","AI"], link:"https://rajamdm.github.io/data-alchemist", linkLabel:"Visit Live →" },
+  { badge:"AI Tool", name:"MDM Failure Pattern Library", desc:"Interactive library of the most common — and costly — data management failure patterns. Built to help teams learn from industry mistakes before making them.", tags:["React","Knowledge Base","Interactive"], link:"#" },
+  { badge:"Research", name:"AI + MDM Convergence Study", desc:"A deep-dive into how LLMs are reshaping MDM: auto-classification, duplicate detection, lineage generation, and AI stewardship agents.", tags:["LLM","MDM","Research","White Paper"], link:"#" },
 ];
 
 const BLOG_POSTS = [
-  {
-    date: "March 2024",
-    title: "Why Most MDM Projects Fail Before They Start",
-    excerpt: "The real culprit isn't technology. It's a misalignment between what data means to IT and what it means to the business.",
-    link: "https://my-heart-thinks.blogspot.com/"
-  },
-  {
-    date: "January 2024",
-    title: "The Golden Record Myth — and What to Do Instead",
-    excerpt: "We've been chasing a single version of truth for decades. Perhaps it's time to ask whether that's even the right goal.",
-    link: "https://my-heart-thinks.blogspot.com/"
-  },
-  {
-    date: "November 2023",
-    title: "From Dubai to Helsinki: What Globe-Trotting Taught Me About Data",
-    excerpt: "Each country I visit surprises me with a different relationship to data, privacy, and trust. Finland was my first lesson.",
-    link: "https://my-heart-thinks.blogspot.com/"
-  }
+  { date:"March 2024", title:"Why Most MDM Projects Fail Before They Start", excerpt:"The real culprit isn't technology. It's a misalignment between what data means to IT and what it means to the business.", link:"https://my-heart-thinks.blogspot.com/" },
+  { date:"January 2024", title:"The Golden Record Myth — and What to Do Instead", excerpt:"We've been chasing a single version of truth for decades. Perhaps it's time to ask whether that's even the right goal.", link:"https://my-heart-thinks.blogspot.com/" },
+  { date:"November 2023", title:"From Dubai to Helsinki: What Globe-Trotting Taught Me About Data", excerpt:"Finland was my first trip abroad. It set the tone: always take the long route — it has better scenery and better data.", link:"https://my-heart-thinks.blogspot.com/" },
 ];
 
-// ── Components ────────────────────────────────────────────────────────────
+/* ── Nav ─────────────────────────────────────────────────────────────────── */
+const Nav = () => (
+  <nav>
+    <a className="nav-logo" href="#hero">Raja Shahnawaz Soni</a>
+    <ul className="nav-links">
+      {[["#about","About"],["#expertise","Expertise"],["#timeline","Experience"],["#projects","Projects"],["#photography","Photography"],["#blog","Blog"],["#contact","Contact"]].map(([h,l]) => (
+        <li key={h}><a href={h}>{l}</a></li>
+      ))}
+    </ul>
+  </nav>
+);
 
-const Nav = ({ activeSection }) => {
-  const links = [
-    { href: "#about", label: "About" },
-    { href: "#expertise", label: "Expertise" },
-    { href: "#timeline", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#photography", label: "Photography" },
-    { href: "#blog", label: "Blog" },
-    { href: "#contact", label: "Contact" },
-  ];
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+const Hero = () => {
+  const r1 = useReveal(0.05);
+  const r2 = useReveal(0.05);
   return (
-    <nav>
-      <a className="nav-logo" href="#hero">Raja Shahnawaz Soni</a>
-      <ul className="nav-links">
-        {links.map(l => (
-          <li key={l.href}>
-            <a href={l.href}>{l.label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
-
-const Hero = () => (
-  <section id="hero">
-    <div className="hero-bg"/>
-    <div className="hero-grid">
-      <div>
-        <p className="hero-label fade-up">MDM Practitioner · Dubai, UAE</p>
-        <h1 className="hero-name fade-up delay-1">
-          Raja<br/><em>Shahnawaz</em><br/>Soni
-        </h1>
-        <p className="hero-title fade-up delay-2">
-          AI-Powered Data Management Enthusiast<br/>& Global Professional with a Human Side
-        </p>
-        <p className="hero-bio fade-up delay-3">
-          I turn messy enterprise data into trustworthy, governed, and intelligent assets.
-          Two decades in the field — from Karachi to Dubai, from legacy warehouses to AI-augmented MDM platforms.
-        </p>
-        <div className="hero-cta fade-up delay-4">
-          <a className="btn-primary" href="#contact">Let's Connect</a>
-          <a className="btn-outline" href="#projects">See My Work</a>
-        </div>
-      </div>
-      <div className="hero-right fade-up delay-2">
-        <div className="hero-stat-grid">
-          {[
-            { num: "15+", label: "Years in Data" },
-            { num: "30+", label: "MDM Projects" },
-            { num: "3", label: "Continents Served" },
-            { num: "∞", label: "Data Stories" },
-          ].map(s => (
-            <div className="hero-stat" key={s.label}>
-              <div className="hero-stat-num">{s.num}</div>
-              <div className="hero-stat-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
-        <blockquote className="hero-tagline">
-          "Data is the raw material of truth — I help organisations refine it."
-        </blockquote>
-      </div>
-    </div>
-  </section>
-);
-
-const About = () => (
-  <section id="about">
-    <div className="section-inner">
-      <p className="section-label">Who I Am</p>
-      <div className="about-grid">
-        <div className="about-text">
-          <h2 className="section-title">Global Professional.<br/>Human Story.</h2>
-          <p>
-            I'm Raja — a <strong>Master Data Management practitioner</strong> with over 15 years navigating the
-            beautiful chaos of enterprise data. Based in Dubai, I've consulted across the Middle East, Europe, and
-            Asia, helping organisations cut through the noise and build data they can actually trust.
+    <section id="hero">
+      <div className="hero-inner">
+        <div>
+          <div className="hero-badge reveal" ref={r1}>Available for Consulting & Collaboration</div>
+          <h1 className="hero-name reveal delay-100" ref={useReveal(0.05)}>
+            Raja<br/><span className="grad">Shahnawaz</span><br/>Soni
+          </h1>
+          <p className="hero-tagline reveal delay-200" ref={useReveal(0.05)}>
+            <strong>MDM Practitioner</strong> & <strong>AI-Powered Data Management Enthusiast.</strong><br/>
+            20+ years turning messy enterprise data into trusted, governed, and intelligent assets.
+            Based in <strong>Dubai</strong>, working globally.
           </p>
-          <p>
-            My journey started long before the MDM buzzword existed — in the back rooms of financial services,
-            building ETL pipelines and learning that <strong>data problems are always people problems first</strong>.
-            That lesson has guided every project since.
-          </p>
-          <blockquote>
-            "Every dataset has a story. My job is to make sure that story is true."
-          </blockquote>
-          <p>
-            Outside of work, I'm a photographer chasing light on five continents, a Manchester United die-hard
-            (the hope never dies), a <strong>Team India cricket fanatic</strong>, and someone who believes
-            A R Rahman's music contains the entire human emotional spectrum in melody.
-            I've been writing since 2006 — a blog that started as a journal and became a reflection of a life
-            well-examined. Someday, a book.
-          </p>
-          <p>
-            First time abroad? <strong>Finland</strong> — via Istanbul. It set the tone for everything: always
-            take the long route, it has better scenery.
-          </p>
-        </div>
-        <div className="about-sidebar">
-          <div className="info-card">
-            <div className="info-card-label">Based In</div>
-            <div className="info-card-value">Dubai, UAE 🇦🇪</div>
+          <div className="hero-cta reveal delay-300" ref={useReveal(0.05)}>
+            <a className="btn btn-grad" href="#contact">Get In Touch</a>
+            <a className="btn btn-ghost" href="#projects">View Projects</a>
           </div>
-          <div className="info-card">
-            <div className="info-card-label">Current Role</div>
-            <div className="info-card-value">Senior MDM Consultant &amp; AI Data Enthusiast</div>
-          </div>
-          <div className="info-card">
-            <div className="info-card-label">First Abroad</div>
-            <div className="info-card-value">Finland 🇫🇮 (via Istanbul 🇹🇷)</div>
-          </div>
-          <div className="info-card">
-            <div className="info-card-label">Writing Since</div>
-            <div className="info-card-value">2006 — "My Heart Thinks" blog · 18 years and counting</div>
-          </div>
-          <div className="info-card">
-            <div className="info-card-label">Passions</div>
-            <div className="passions-list">
-              {["Manchester United ❤️", "Team India 🏏", "A R Rahman 🎵", "Photography 📷", "Writing ✍️", "Globe Trotting 🌍", "Family 👨‍👩‍👧‍👧", "Buffy 🐱"].map(p => (
-                <span className="passion-tag" key={p}>{p}</span>
-              ))}
-            </div>
-          </div>
-          <div className="info-card">
-            <div className="info-card-label">Contact</div>
-            <div className="info-card-value" style={{fontSize:"0.9rem"}}>raja.cloudmdm@gmail.com</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const Expertise = () => (
-  <section id="expertise">
-    <div className="section-inner">
-      <p className="section-label">What I Do</p>
-      <h2 className="section-title" style={{color:"var(--white)"}}>Core Expertise</h2>
-      <p className="section-subtitle">
-        From strategy to execution — the full spectrum of enterprise data management,
-        sharpened by 15+ years across industries and geographies.
-      </p>
-      <div className="expertise-grid">
-        {EXPERTISE.map(e => (
-          <div className="expertise-card" key={e.name}>
-            <div className="expertise-icon">{e.icon}</div>
-            <div className="expertise-name">{e.name}</div>
-            <div className="expertise-desc">{e.desc}</div>
-            <div className="expertise-tags">
-              {e.tags.map(t => <span className="etag" key={t}>{t}</span>)}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const Timeline = () => (
-  <section id="timeline">
-    <div className="section-inner">
-      <p className="section-label">Career Journey</p>
-      <h2 className="section-title" style={{color:"var(--white)"}}>15 Years.<br/>One North Star.</h2>
-      <p className="section-subtitle">
-        From data analyst to MDM practitioner — a career built on curiosity, craft, and a stubborn belief
-        that good data changes everything.
-      </p>
-      <div className="timeline-track">
-        {TIMELINE.map((item, i) => (
-          <div className="timeline-item" key={i}>
-            <div className="tl-period">{item.period}</div>
-            <div className="tl-role">{item.role}</div>
-            <div className="tl-company">{item.company}</div>
-            <div className="tl-desc">{item.desc}</div>
-            <div className="tl-tags">
-              {item.tags.map(t => <span className="tl-tag" key={t}>{t}</span>)}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const Projects = () => (
-  <section id="projects">
-    <div className="section-inner">
-      <p className="section-label">Built by Me</p>
-      <h2 className="section-title" style={{color:"var(--white)"}}>Projects &amp; Work</h2>
-      <p className="section-subtitle">
-        Things I've built, researched, and shipped — at the intersection of data management, AI, and storytelling.
-      </p>
-      <div className="projects-grid">
-        {PROJECTS.map(p => (
-          <a
-            key={p.name}
-            className={`project-card${p.featured ? " featured" : ""}`}
-            href={p.link}
-            target={p.link !== "#" ? "_blank" : undefined}
-            rel="noopener noreferrer"
-          >
-            <span className="project-badge">{p.badge}</span>
-            <div className="project-name">{p.name}</div>
-            <div className="project-desc">{p.desc}</div>
-            <div className="project-meta">
-              {p.tags.map(t => <span className="pmeta" key={t}>{t}</span>)}
-            </div>
-            {p.link !== "#" && (
-              <div className="project-link">{p.linkLabel || "View Project →"}</div>
-            )}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const Photography = () => {
-  const frames = [
-    { wide: true, icon: "🌅", label: "Golden Hours" },
-    { icon: "🏙️", label: "Cityscapes" },
-    { icon: "🇫🇮", label: "Finland" },
-    { tall: true, icon: "🌊", label: "Seascapes" },
-    { icon: "🕌", label: "Architecture" },
-    { icon: "🌄", label: "Landscapes" },
-    { icon: "🎭", label: "Street" },
-  ];
-  return (
-    <section id="photography">
-      <div className="section-inner">
-        <p className="section-label">Through the Lens</p>
-        <h2 className="section-title" style={{color:"var(--white)"}}>Photography</h2>
-        <p className="section-subtitle">
-          A globe-trotter's visual diary — from Dubai's skyline to Finland's silent forests.
-          I shoot the world the way I see data: there's always a story hiding in plain sight.
-        </p>
-        <div className="photo-mosaic">
-          {frames.map((f, i) => (
-            <div key={i} className={`photo-item${f.wide ? " wide" : ""}${f.tall ? " tall" : ""}`}>
-              <div className="photo-placeholder">
-                <span>{f.icon}</span>
-                <span className="photo-label">{f.label}</span>
+          <div className="hero-stats reveal delay-400" ref={useReveal(0.05)}>
+            {[["20","+ Years",""],[" 30","+ Projects",""],["3"," Continents",""]].map(([n,s,_], i) => (
+              <div className="stat-item" key={i}>
+                <span className="stat-num"><Counter target={n.trim()} suffix={s}/></span>
+                <span className="stat-label">{i===0?"in Data":i===1?"Delivered":"Served"}</span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <div className="photo-cta">
-          <a
-            className="btn-primary"
-            href="https://rajashahnawaz.500px.photography/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View on 500px →
-          </a>
-          <a
-            className="btn-outline"
-            href="https://www.instagram.com/pics_that_click/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram @pics_that_click
-          </a>
+        <div className="hero-cards">
+          <div className="hcard hcard1">
+            <div className="hcard-icon">🏗️</div>
+            <div className="hcard-title">Master Data Management</div>
+            <div className="hcard-sub">SAP MDG · Informatica · Reltio</div>
+            <div className="hcard-bar"><div className="hcard-bar-fill" style={{width:"92%"}}/></div>
+          </div>
+          <div className="hcard hcard2">
+            <div className="hcard-icon">🤖</div>
+            <div className="hcard-title">AI + Data Integration</div>
+            <div className="hcard-sub">LLM Pipelines · GenAI · Claude API</div>
+            <div className="hcard-bar"><div className="hcard-bar-fill" style={{width:"85%"}}/></div>
+          </div>
+          <div className="hcard hcard3">
+            <div className="hcard-icon">🌍</div>
+            <div className="hcard-title">Global Delivery</div>
+            <div className="hcard-sub">EMEA · APAC · Americas</div>
+            <div className="hcard-bar"><div className="hcard-bar-fill" style={{width:"96%"}}/></div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const Buffy = () => (
-  <section id="buffy">
-    <div className="section-inner">
-      <div className="buffy-grid">
-        <div className="buffy-portrait">🐱</div>
-        <div className="buffy-content">
-          <p className="section-label" style={{color:"var(--gold)"}}>Chief Happiness Officer</p>
-          <h2 className="section-title">Meet Buffy.</h2>
-          <p>
-            Golden in fur, golden in spirit. Buffy is a <strong style={{color:"var(--gold)"}}>golden cat</strong> who joined
-            our family and immediately claimed the best spot on the couch, the best part of every morning, and
-            an entire Instagram account.
-          </p>
-          <p>
-            In a world of complex data models and governance frameworks, Buffy provides the most important thing
-            I know: unconditional warmth and the reminder that sometimes the best thing to do is simply sit
-            in a warm patch of sunlight.
-          </p>
-          <p>
-            She is, objectively, the most photogenic member of the household. The data supports this conclusion.
-          </p>
-          <div style={{marginTop:"1.5rem"}}>
-            <a
-              className="btn-outline"
-              href="https://www.instagram.com/buffy.the.golden.cat/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{borderColor:"rgba(201,168,76,0.4)", color:"var(--gold)"}}
-            >
-              @buffy.the.golden.cat →
-            </a>
+/* ── About ─────────────────────────────────────────────────────────────────── */
+const About = () => {
+  const r = useReveal(); const r2 = useReveal();
+  return (
+    <section id="about">
+      <div className="inner">
+        <div className="about-grid">
+          <div className="reveal-left" ref={r}>
+            <div className="chip">Who I Am</div>
+            <h2 className="section-title">Global Professional.<br/><em>Human Story.</em></h2>
+            <div className="about-text">
+              <p>I'm Raja — a <strong>Master Data Management practitioner</strong> with over 20 years navigating the beautiful chaos of enterprise data. Based in Dubai, I've consulted across the Middle East, Europe, and Asia, helping organisations cut through the noise and build data they can actually trust.</p>
+              <p>My journey started long before the MDM buzzword existed — in the back rooms of financial services, building ETL pipelines and learning that <strong>data problems are always people problems first.</strong> That lesson has guided every project since.</p>
+              <blockquote className="about-quote">"Every dataset has a story. My job is to make sure that story is true."</blockquote>
+              <p>Outside of work, I'm a photographer chasing light on five continents, a <strong>Manchester United</strong> die-hard (the hope never dies), a <strong>Team India cricket fanatic</strong>, and someone who believes A R Rahman's music contains the entire human emotional spectrum in melody. I've been writing since 2006 — a blog that started as a journal and became a life well-examined. Someday, a book.</p>
+              <p>First time abroad? <strong>Finland</strong> — via Istanbul. It set the tone for everything: always take the long route, it has better scenery.</p>
+            </div>
+          </div>
+          <div className="reveal-right" ref={r2}>
+            <div className="facts-grid">
+              {[
+                {icon:"📍", label:"Based In", value:"Dubai, UAE 🇦🇪"},
+                {icon:"💼", label:"Current Role", value:"Senior MDM Consultant & AI Data Enthusiast"},
+                {icon:"🇫🇮", label:"First Trip Abroad", value:"Finland (via Istanbul 🇹🇷)"},
+                {icon:"✍️", label:"Writing Since", value:"2006 — 'My Heart Thinks' blog"},
+                {icon:"📧", label:"Email", value:"raja.cloudmdm@gmail.com"},
+              ].map(f => (
+                <div className="fact-card" key={f.label}>
+                  <div className="fact-icon">{f.icon}</div>
+                  <div className="fact-label">{f.label}</div>
+                  <div className="fact-value">{f.value}</div>
+                </div>
+              ))}
+              <div className="fact-card passions-wrap" style={{gridColumn:"span 2"}}>
+                <div className="fact-label">Passions</div>
+                <div className="tags-row">
+                  {["Manchester United ❤️","Team India 🏏","A R Rahman 🎵","Photography 📷","Writing ✍️","Globe Trotting 🌍","Family 👨‍👩‍👧‍👧","Buffy 🐱"].map(p => <span className="tag" key={p}>{p}</span>)}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
-const Blog = () => (
-  <section id="blog">
-    <div className="section-inner">
-      <p className="section-label">Writing</p>
-      <h2 className="section-title">My Heart Thinks</h2>
-      <p className="section-subtitle">
-        Writing since 2006. Thoughts on data, life, travel, music, and the spaces in between.
-        A journal that grew into something I can't stop.
-      </p>
-      <div className="blog-grid">
-        {BLOG_POSTS.map((post, i) => (
-          <a
-            key={i}
-            className="blog-card"
-            href={post.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="blog-date">{post.date}</div>
-            <div className="blog-title">{post.title}</div>
-            <div className="blog-excerpt">{post.excerpt}</div>
-            <span className="blog-read-more">Read on Blog →</span>
-          </a>
-        ))}
+/* ── Expertise ─────────────────────────────────────────────────────────────── */
+const Expertise = () => {
+  const r = useReveal();
+  return (
+    <section id="expertise">
+      <div className="inner">
+        <div className="reveal" ref={r}>
+          <div className="chip">What I Do</div>
+          <h2 className="section-title">Core Expertise</h2>
+          <p className="section-sub">The full spectrum of enterprise data management, sharpened by 20+ years across industries and geographies.</p>
+        </div>
+        <div className="expertise-grid">
+          {EXPERTISE.map((e, i) => {
+            const ref = useReveal();
+            return (
+              <div className={`exp-card reveal delay-${(i%3+1)*100}`} ref={ref} key={e.name}>
+                <span className="exp-icon">{e.icon}</span>
+                <div className="exp-name">{e.name}</div>
+                <div className="exp-desc">{e.desc}</div>
+                <div className="exp-tags">{e.tags.map(t => <span className="exp-tag" key={t}>{t}</span>)}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div style={{marginTop:"2.5rem"}}>
-        <a
-          className="btn-outline"
-          href="https://my-heart-thinks.blogspot.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{borderColor:"rgba(107,138,111,0.5)", color:"var(--sage)"}}
-        >
-          Read All Posts →
-        </a>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
+/* ── Timeline ─────────────────────────────────────────────────────────────── */
+const Timeline = () => {
+  const r = useReveal();
+  return (
+    <section id="timeline">
+      <div className="inner">
+        <div className="reveal" ref={r}>
+          <div className="chip">Career Journey</div>
+          <h2 className="section-title">20 Years.<br/><em>One North Star.</em></h2>
+          <p className="section-sub">From data analyst to MDM practitioner — built on curiosity, craft, and a stubborn belief that good data changes everything.</p>
+        </div>
+        <div className="tl-wrap">
+          {TIMELINE.map((item, i) => {
+            const ref = useReveal();
+            return (
+              <div className={`tl-item reveal delay-${Math.min(i*100,400)}`} ref={ref} key={i}>
+                <div className="tl-dot"/>
+                <div className="tl-period">{item.period}</div>
+                <div className="tl-role">{item.role}</div>
+                <div className="tl-co">{item.company}</div>
+                <div className="tl-desc">{item.desc}</div>
+                <div className="tl-tags">{item.tags.map(t => <span className="tl-tag" key={t}>{t}</span>)}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ── Projects ─────────────────────────────────────────────────────────────── */
+const Projects = () => {
+  const r = useReveal();
+  return (
+    <section id="projects">
+      <div className="inner">
+        <div className="reveal" ref={r}>
+          <div className="chip">Built by Me</div>
+          <h2 className="section-title">Projects & Work</h2>
+          <p className="section-sub">Things I've built, researched, and shipped — at the intersection of data management, AI, and storytelling.</p>
+        </div>
+        <div className="projects-grid">
+          {PROJECTS.map((p, i) => {
+            const ref = useReveal();
+            return (
+              <a key={p.name} className={`proj-card reveal delay-${i*100}${p.feat?" feat":""}`} ref={ref}
+                href={p.link} target={p.link!=="#"?"_blank":undefined} rel="noopener noreferrer">
+                <span className="proj-badge">{p.badge}</span>
+                <div className="proj-name">{p.name}</div>
+                <div className="proj-desc">{p.desc}</div>
+                <div className="proj-meta">{p.tags.map(t => <span className="pmeta" key={t}>{t}</span>)}</div>
+                {p.link!=="#" && <div className="proj-link">{p.linkLabel||"View Project →"}</div>}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ── Photography ─────────────────────────────────────────────────────────── */
+const Photography = () => {
+  const r = useReveal();
+  const frames = [
+    {wide:true, emo:"🌅", lbl:"Golden Hours"},
+    {emo:"🏙️", lbl:"Cityscapes"},
+    {tall:true, emo:"🌊", lbl:"Seascapes"},
+    {emo:"🇫🇮", lbl:"Finland"},
+    {emo:"🕌", lbl:"Architecture"},
+    {emo:"🌄", lbl:"Landscapes"},
+    {emo:"🎭", lbl:"Street Life"},
+  ];
+  return (
+    <section id="photography">
+      <div className="inner">
+        <div className="reveal" ref={r}>
+          <div className="chip">Through the Lens</div>
+          <h2 className="section-title">Photography</h2>
+          <p className="section-sub">A globe-trotter's visual diary. From Dubai's skyline to Finland's silent forests — I shoot the world the way I see data: there's always a story hiding in plain sight.</p>
+        </div>
+        <div className="photo-mosaic reveal" ref={useReveal()}>
+          {frames.map((f, i) => (
+            <div key={i} className={`photo-cell${f.wide?" wide":""}${f.tall?" tall":""}`}>
+              <div className="photo-bg">
+                <span className="photo-emo">{f.emo}</span>
+                <span className="photo-lbl">{f.lbl}</span>
+              </div>
+              <div className="photo-overlay"/>
+            </div>
+          ))}
+        </div>
+        <div style={{display:"flex",gap:"1rem",flexWrap:"wrap"}}>
+          <a className="btn btn-grad" href="https://rajashahnawaz.500px.photography/" target="_blank" rel="noopener noreferrer">View on 500px →</a>
+          <a className="btn btn-ghost" href="https://www.instagram.com/pics_that_click/" target="_blank" rel="noopener noreferrer">@pics_that_click</a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ── Buffy ─────────────────────────────────────────────────────────────────── */
+const Buffy = () => {
+  const r1 = useReveal(); const r2 = useReveal();
+  return (
+    <section id="buffy">
+      <div className="inner">
+        <div className="buffy-grid">
+          <div className="reveal-left" ref={r1}>
+            <div className="buffy-visual">
+              <div className="buffy-glow"/>
+              <span className="buffy-emo">🐱</span>
+            </div>
+          </div>
+          <div className="buffy-content reveal-right" ref={r2}>
+            <div className="chip">Chief Happiness Officer</div>
+            <h2 className="section-title">Meet <span>Buffy.</span></h2>
+            <p><strong>Golden in fur. Golden in spirit.</strong> Buffy is a golden cat who joined our family and immediately claimed the best spot on the couch, the best part of every morning, and an entire Instagram account of her own.</p>
+            <p>In a world of complex data models and governance frameworks, Buffy provides the most important thing I know: unconditional warmth and the reminder that sometimes the best thing to do is simply sit in a warm patch of sunlight.</p>
+            <p>She is, objectively, the most photogenic member of the household. The data supports this conclusion.</p>
+            <div style={{marginTop:"1.5rem"}}>
+              <a className="btn btn-ghost" href="https://www.instagram.com/buffy.the.golden.cat/" target="_blank" rel="noopener noreferrer" style={{borderColor:"rgba(245,158,11,0.3)",color:"var(--amber)"}}>@buffy.the.golden.cat →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ── Blog ─────────────────────────────────────────────────────────────────── */
+const Blog = () => {
+  const r = useReveal();
+  return (
+    <section id="blog">
+      <div className="inner">
+        <div className="reveal" ref={r}>
+          <div className="chip" style={{background:"rgba(16,185,129,0.1)",color:"var(--green)",borderColor:"rgba(16,185,129,0.25)"}}>Writing</div>
+          <h2 className="section-title">My Heart Thinks</h2>
+          <p className="section-sub">Writing since 2006. Thoughts on data, life, travel, music, and the spaces in between — a journal that became something I can't stop.</p>
+        </div>
+        <div className="blog-grid">
+          {BLOG_POSTS.map((post, i) => {
+            const ref = useReveal();
+            return (
+              <a key={i} className={`blog-card reveal delay-${i*100}`} ref={ref} href={post.link} target="_blank" rel="noopener noreferrer">
+                <div className="blog-date">{post.date}</div>
+                <div className="blog-title">{post.title}</div>
+                <div className="blog-excerpt">{post.excerpt}</div>
+                <span className="blog-more">Read on Blog →</span>
+              </a>
+            );
+          })}
+        </div>
+        <div style={{marginTop:"2.5rem"}}>
+          <a className="btn btn-ghost" href="https://my-heart-thinks.blogspot.com/" target="_blank" rel="noopener noreferrer" style={{borderColor:"rgba(16,185,129,0.3)",color:"var(--green)"}}>Read All Posts →</a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ── Contact ─────────────────────────────────────────────────────────────── */
 const Contact = () => {
-  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({name:"",email:"",msg:""});
   const [sent, setSent] = useState(false);
+  const r1 = useReveal(); const r2 = useReveal();
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    // Mailto fallback — opens mail client
-    const subject = encodeURIComponent(`Portfolio Contact from ${formState.name}`);
-    const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`);
-    window.open(`mailto:raja.cloudmdm@gmail.com?subject=${subject}&body=${body}`);
+    const sub = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.msg}`);
+    window.open(`mailto:raja.cloudmdm@gmail.com?subject=${sub}&body=${body}`);
     setSent(true);
   };
 
+  const socials = [
+    {icon:"💼", name:"LinkedIn", handle:"raja-shahnawaz", href:"https://www.linkedin.com/in/raja-shahnawaz/"},
+    {icon:"📷", name:"500px", handle:"rajashahnawaz.500px.photography", href:"https://rajashahnawaz.500px.photography/"},
+    {icon:"📸", name:"Instagram (Photography)", handle:"@pics_that_click", href:"https://www.instagram.com/pics_that_click/"},
+    {icon:"🐱", name:"Buffy's Instagram", handle:"@buffy.the.golden.cat", href:"https://www.instagram.com/buffy.the.golden.cat/"},
+    {icon:"✍️", name:"Blog", handle:"my-heart-thinks.blogspot.com", href:"https://my-heart-thinks.blogspot.com/"},
+    {icon:"📘", name:"Facebook", handle:"raja.shahnawaz", href:"https://www.facebook.com/raja.shahnawaz"},
+    {icon:"✉️", name:"Email", handle:"raja.cloudmdm@gmail.com", href:"mailto:raja.cloudmdm@gmail.com"},
+  ];
+
   return (
     <section id="contact">
-      <div className="section-inner">
-        <p className="section-label">Get In Touch</p>
-        <h2 className="section-title" style={{color:"var(--white)"}}>Let's Talk Data.</h2>
-        <p className="section-subtitle">
-          Whether it's a consulting engagement, a speaking opportunity, a collaboration,
-          or just a conversation about MDM over virtual coffee — I'm all ears.
-        </p>
+      <div className="inner">
+        <div className="reveal" ref={useReveal()}>
+          <div className="chip">Get In Touch</div>
+          <h2 className="section-title">Let's Talk Data.</h2>
+          <p className="section-sub">Consulting, advisory, workshops, speaking, or just a great conversation about MDM — I'm available.</p>
+        </div>
         <div className="contact-grid">
-          <div className="contact-left">
-            <p>
-              I'm based in Dubai and work with clients globally. Available for consulting,
-              advisory roles, workshops, and conference speaking on Data Management, MDM, and AI.
-            </p>
-            <div className="social-links">
-              {[
-                { icon: "💼", label: "LinkedIn", handle: "raja-shahnawaz", href: "https://www.linkedin.com/in/raja-shahnawaz/" },
-                { icon: "📷", label: "500px", handle: "rajashahnawaz", href: "https://rajashahnawaz.500px.photography/" },
-                { icon: "📸", label: "Instagram", handle: "@pics_that_click", href: "https://www.instagram.com/pics_that_click/" },
-                { icon: "🐱", label: "Buffy's IG", handle: "@buffy.the.golden.cat", href: "https://www.instagram.com/buffy.the.golden.cat/" },
-                { icon: "✍️", label: "Blog", handle: "My Heart Thinks (since 2006)", href: "https://my-heart-thinks.blogspot.com/" },
-                { icon: "📘", label: "Facebook", handle: "raja.shahnawaz", href: "https://www.facebook.com/raja.shahnawaz" },
-                { icon: "✉️", label: "Email", handle: "raja.cloudmdm@gmail.com", href: "mailto:raja.cloudmdm@gmail.com" },
-              ].map(s => (
-                <a className="social-link" key={s.label} href={s.href} target="_blank" rel="noopener noreferrer">
-                  <span className="social-icon">{s.icon}</span>
-                  <span>
-                    <strong style={{color:"var(--white)", display:"block", fontSize:"0.8rem"}}>{s.label}</strong>
-                    <span style={{fontSize:"0.78rem"}}>{s.handle}</span>
-                  </span>
+          <div className="contact-intro reveal-left" ref={r1}>
+            <p>Based in Dubai, working with clients globally. Available for consulting, advisory roles, workshops, and conference speaking on Data Management, MDM, and AI.</p>
+            <div className="social-stack">
+              {socials.map(s => (
+                <a className="slink" key={s.name} href={s.href} target="_blank" rel="noopener noreferrer">
+                  <span className="slink-icon">{s.icon}</span>
+                  <div>
+                    <span className="slink-name">{s.name}</span>
+                    <span className="slink-handle">{s.handle}</span>
+                  </div>
                 </a>
               ))}
             </div>
           </div>
-          <div>
+          <div className="reveal-right" ref={r2}>
             {sent ? (
-              <div style={{
-                background:"var(--bg2)",
-                border:"1px solid rgba(201,168,76,0.3)",
-                padding:"2.5rem",
-                textAlign:"center"
-              }}>
-                <div style={{fontSize:"2.5rem", marginBottom:"1rem"}}>✉️</div>
-                <div style={{fontFamily:"var(--serif)", fontSize:"1.3rem", color:"var(--gold)", marginBottom:"0.8rem"}}>
-                  Message opened in your mail client.
-                </div>
-                <div style={{color:"var(--smoke)", fontSize:"0.9rem", lineHeight:"1.6"}}>
-                  Hit send there and I'll get back to you soon. Or reach out directly at<br/>
-                  <a href="mailto:raja.cloudmdm@gmail.com" style={{color:"var(--gold)"}}>raja.cloudmdm@gmail.com</a>
-                </div>
+              <div className="sent-box">
+                <div className="icon">✉️</div>
+                <h3>Message opened in your mail client.</h3>
+                <p>Hit send there and I'll get back to you soon. Or reach out directly at <a href="mailto:raja.cloudmdm@gmail.com">raja.cloudmdm@gmail.com</a></p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label className="form-label">Name</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    required
-                    placeholder="Your name"
-                    value={formState.name}
-                    onChange={e => setFormState({...formState, name: e.target.value})}
-                  />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">Email</label>
-                  <input
-                    className="form-input"
-                    type="email"
-                    required
-                    placeholder="your@email.com"
-                    value={formState.email}
-                    onChange={e => setFormState({...formState, email: e.target.value})}
-                  />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">Message</label>
-                  <textarea
-                    className="form-textarea"
-                    required
-                    placeholder="Tell me what's on your mind..."
-                    value={formState.message}
-                    onChange={e => setFormState({...formState, message: e.target.value})}
-                  />
-                </div>
-                <button type="submit" className="btn-primary">Send Message</button>
+              <form className="cform" onSubmit={submit}>
+                <div><label className="flabel">Name</label><input className="finput" required placeholder="Your name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/></div>
+                <div><label className="flabel">Email</label><input className="finput" type="email" required placeholder="your@email.com" value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/></div>
+                <div><label className="flabel">Message</label><textarea className="ftextarea" required placeholder="What's on your mind..." value={form.msg} onChange={e=>setForm({...form,msg:e.target.value})}/></div>
+                <button type="submit" className="btn btn-grad">Send Message →</button>
               </form>
             )}
           </div>
@@ -1392,13 +1000,12 @@ const Contact = () => {
   );
 };
 
+/* ── Footer ─────────────────────────────────────────────────────────────── */
 const Footer = () => (
   <footer>
-    <div className="footer-inner">
-      <div className="footer-copy">
-        © 2024 Raja Shahnawaz Soni · Built with ❤️ in Dubai · Powered by React &amp; Cloudflare
-      </div>
-      <div className="footer-links">
+    <div className="foot-inner">
+      <div className="foot-copy">© 2024 Raja Shahnawaz Soni · Built with passion in Dubai</div>
+      <div className="foot-links">
         <a href="https://www.linkedin.com/in/raja-shahnawaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://rajamdm.github.io/data-alchemist" target="_blank" rel="noopener noreferrer">Data Alchemist</a>
         <a href="https://my-heart-thinks.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a>
@@ -1408,12 +1015,11 @@ const Footer = () => (
   </footer>
 );
 
-// ── App ───────────────────────────────────────────────────────────────────
-
-const App = () => {
-  return (
-    <>
-      <Nav/>
+/* ── App ─────────────────────────────────────────────────────────────────── */
+const App = () => (
+  <>
+    <Nav/>
+    <div className="page">
       <Hero/>
       <About/>
       <Expertise/>
@@ -1424,12 +1030,11 @@ const App = () => {
       <Blog/>
       <Contact/>
       <Footer/>
-    </>
-  );
-};
+    </div>
+  </>
+);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 </script>
 </body>
 </html>
